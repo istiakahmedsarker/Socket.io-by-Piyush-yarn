@@ -21,7 +21,7 @@ const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
     useEffect(()=>{
         const _socket = io('http://localhost:8000')
 
-        reutrn ()=>{
+        return ()=>{
             _socket.disconnect();
         }
     },[])
