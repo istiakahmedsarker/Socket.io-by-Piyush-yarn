@@ -6,8 +6,11 @@ async function init() {
     const httpServer = http.createServer();
     const PORT = process.env.PORT || 8000;
 
-    socketService.io.attach(httpServer)
+    socketService.io.attach(httpServer);
 
-    httpServer.listen(PORT,()=> console.log(`HTTP server listening on ${PORT}`));
+    socketService.initListeners(); // Corrected line
+
+    httpServer.listen(PORT, () => console.log(`HTTP server listening on ${PORT}`));
 }
+
 init();
