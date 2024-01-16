@@ -25,9 +25,10 @@ const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
     const sendMessage: ISocketContext['sendMessage'] = useCallback((msg) => {
         console.log("Send Message", msg);
         if(socket){
-            socket.emit('sendMessage', msg)
+            socket.emit('event:message', {message: msg})
+            // publish to redis
         }
-    }, [])
+    }, [socket])
 
 
 
