@@ -39,7 +39,11 @@ class SocketService{
                 await pub.publish('MESSAGES',JSON.stringify({message}))
             })
         })
-
+        sub.on('message',async(channel,message)=>{
+            if(channel === 'MESSAGES'){
+                io.emit('message',{message})
+            }
+        })
     }
     get io(){
         return this._io;
