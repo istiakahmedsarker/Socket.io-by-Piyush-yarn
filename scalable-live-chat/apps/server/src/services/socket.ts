@@ -24,7 +24,8 @@ class SocketService{
                 origin: "*"
             }
         });
-
+        
+        sub.subscribe('MESSAGES')
     }
 
     public initListeners(){
@@ -39,7 +40,6 @@ class SocketService{
             })
         })
 
-        sub.subscribe('MESSAGES')
     }
     get io(){
         return this._io;
