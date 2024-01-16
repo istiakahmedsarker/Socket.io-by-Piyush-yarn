@@ -38,6 +38,8 @@ class SocketService{
                 await pub.publish('MESSAGES',JSON.stringify({message}))
             })
         })
+
+        sub.subscribe('MESSAGES')
     }
     get io(){
         return this._io;
