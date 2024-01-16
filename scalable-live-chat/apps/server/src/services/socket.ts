@@ -34,6 +34,8 @@ class SocketService{
             console.log(`New Socket Connected to `, socket.id);
             socket.on('event:message', async({message}:{message:string})=>{
                 console.log("New Message received",message)
+
+                await pub.publish('MESSAGES',JSON.stringify({message}))
             })
         })
     }
